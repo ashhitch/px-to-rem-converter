@@ -3,13 +3,18 @@
 <form>
 
 
-<md-input align="end" type="number" mdInput required placeholder="Base <HTML> px value e.g 16" maxlength="3"  name="baseValue" [(ngModel)]="model.baseValue" id="baseValue" #baseValue="ngModel">
+
+<md-input-container style="width:100%">
+<input md-input  type="number" required placeholder="Base <HTML> px value e.g 16" maxlength="3"  name="baseValue" [(ngModel)]="model.baseValue" id="baseValue" #baseValue="ngModel" />
 
   <span mdSuffix>PX</span>
-</md-input>
 
-<md-input align="end" dividerColor="accent" type="text" required placeholder="px sizes to convert" name="pxValues" [(ngModel)]="model.pxValues" id="pxValues"  #pxValues="ngModel">
-</md-input>
+</md-input-container>
+
+<md-input-container style="width:100%">
+<input md-input align="end" dividerColor="accent" type="text" required placeholder="px sizes to convert" name="pxValues" [(ngModel)]="model.pxValues" id="pxValues"  #pxValues="ngModel" />
+
+</md-input-container>
 
  <button md-raised-button color="primary" (click)="calc()">Calc</button>
 
@@ -17,7 +22,11 @@
 </md-card>
 
 <md-card>
+<md-card-title>Results</md-card-title>
 <md-list dense>
-   <md-list-item *ngFor="let item of result">{{item.px}}px = <strong>{{item.rem}}rem</strong></md-list-item>
+   <md-list-item *ngFor="let item of result">{{item.px}}px&nbsp;=&nbsp;<strong>{{item.rem}}rem</strong></md-list-item>
 </md-list>
+</md-card>
+<md-card>
+  Built by <a href="https://www.ashleyhitchcock.com" class="portfolio-link">Ash Hitchcock</a>
 </md-card>

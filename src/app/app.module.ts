@@ -4,14 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdSnackBar } from '@angular/material';
 import { PxRemComponent } from './px-rem/px-rem.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PxRemComponent
+    PxRemComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -19,7 +20,7 @@ import { PxRemComponent } from './px-rem/px-rem.component';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [],
+  providers: [MdSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

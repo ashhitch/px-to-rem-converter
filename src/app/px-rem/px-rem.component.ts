@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { RemSettings } from '../rem-settings';
-
+import {  MdSnackBar } from '@angular/material';
 @Component({
   selector: 'app-px-rem',
   templateUrl: './px-rem.component.html',
-  styleUrls: ['./px-rem.component.sass']
+  styleUrls: ['./px-rem.component.scss'],
+  providers: [MdSnackBar]
 })
 export class PxRemComponent implements OnInit {
 
   model: RemSettings;
   result: any;
 
-  constructor() {
-
+  constructor(public snackBar: MdSnackBar) {
 
     const pxValues = '6,8,9,10,11,12,13,14,15,16,18,20,21,22,23,24,26,27,28,29,30,32,34,36,38,40,50,60,70';
     const baseValue = 16;
@@ -27,6 +27,9 @@ export class PxRemComponent implements OnInit {
     this.calc();
   }
 
+updated() {
+  this.snackBar.open('Results Updated', 'Updated');
+}
 
   calc() {
 
@@ -46,7 +49,11 @@ export class PxRemComponent implements OnInit {
         }
 
        this.result.push(outputVal);
+
+
     });
+
+
 
   }
 
